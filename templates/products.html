@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="fw-bold mb-1"> Our Products</h3>
+<p class="text-muted small mb-4">Best quality products with fast delivery</p>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-0" style="border-top: 4px solid #FF6600 imo !important;">
+            <img src="{{product.image}}" style="height: 200px; width: 400px; object-fit: contain;padding: 15px;">
+            <div class="card-body" text-center>
+                <span class="badge bg-light text-dark border mb-2">{{product.category}}</span>
+                <h6 class="fw-bold">{{product.name}}</h6>
+                <h5 style="color: #FF6600;">${{product.price}}</h5>
+                <a href="#" class="btn w-100 mt-2 text-white" style="background: #FF6600;">Add to Cart 🛒</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% if not products %}
+<div class="text-center p-5 bg-light rounded-3">
+    <p class="text-muted">No Products found. Add some products</p>
+</div>
+{% endif %}
+{% endblock %}
